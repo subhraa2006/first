@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal portfolio, academic records, and contact information for Subhrajyoti Ghosh"
+    />
+    <title>Subhrajyoti Ghosh | Personal website</title>
+    <style>
+      :root {
+        --ink: #111827;
+        --muted: #5f6672;
+        --paper: #ffffff;
+        --line: #dde1e7;
+        --accent: #a91d2b;
+        --blue: #173a63;
+        --wash: #f6f7f8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 24px;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible {
+        outline: 3px solid rgba(169, 29, 43, 0.3);
+        outline-offset: 4px;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 92px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .name {
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 19px;
+        font-weight: 700;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        font-size: 14px;
+      }
+
+      nav a {
+        color: var(--muted);
+      }
+
+      nav a:hover,
+      nav a:focus-visible {
+        color: var(--accent);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.45fr);
+        gap: 64px;
+        align-items: end;
+        min-height: 480px;
+        padding: 78px 0 82px;
+      }
+
+      .eyebrow {
+        margin: 0 0 22px;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(48px, 7vw, 92px);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+      }
+
+      .intro {
+        margin: 0 0 8px;
+        padding-left: 20px;
+        border-left: 3px solid var(--accent);
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .intro strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .link {
+        display: inline-block;
+        margin-top: 22px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid var(--ink);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .link:hover,
+      .link:focus-visible {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      section {
+        border-top: 1px solid var(--line);
+        padding: 56px 0 64px;
+        scroll-margin-top: 16px;
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 48px;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--blue);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .about-copy {
+        max-width: 700px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(24px, 3vw, 36px);
+        line-height: 1.35;
+        letter-spacing: -0.02em;
+      }
+
+      .work-list,
+      .documents,
+      .contact-details {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .work-list li {
+        display: grid;
+        grid-template-columns: 72px 1fr auto;
+        gap: 24px;
+        align-items: baseline;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .work-list li:first-child,
+      .contact-details li:first-child {
+        border-top: 1px solid var(--line);
+      }
+
+      .year,
+      .type,
+      .record-year,
+      .record-detail {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .project,
+      .record-title {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+      }
+
+      .page-intro {
+        display: grid;
+        grid-template-columns: 1.6fr 0.4fr;
+        gap: 48px;
+        align-items: end;
+        padding: 64px 0 48px;
+      }
+
+      .page-intro .eyebrow {
+        margin-bottom: 18px;
+      }
+
+      .page-intro h2 {
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(38px, 5vw, 60px);
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        text-transform: none;
+      }
+
+      .summary {
+        margin: 0;
+        padding-left: 20px;
+        border-left: 3px solid var(--accent);
+        color: var(--muted);
+      }
+
+      .records {
+        display: grid;
+        gap: 24px;
+      }
+
+      .record {
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: baseline;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .record:first-child {
+        border-top: 1px solid var(--line);
+      }
+
+      .marks-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .mark-card {
+        min-height: 150px;
+        padding: 22px;
+        background: var(--wash);
+        border-top: 3px solid var(--accent);
+      }
+
+      .mark-card h3 {
+        margin: 0 0 26px;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .mark-card strong {
+        display: block;
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 38px;
+        line-height: 1;
+      }
+
+      .mark-card span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .documents li {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .document-action {
+        border: 0;
+        border-bottom: 1px solid var(--accent);
+        padding: 0 0 2px;
+        color: var(--accent);
+        background: transparent;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .document-action:hover,
+      .document-action:focus-visible {
+        color: var(--blue);
+        border-color: var(--blue);
+      }
+
+      .document-name {
+        display: block;
+        max-width: 480px;
+        overflow: hidden;
+        color: var(--muted);
+        font-size: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .document-status {
+        grid-column: 2;
+        min-height: 24px;
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 48px;
+        align-items: start;
+        min-width: 0;
+      }
+
+      .contact-grid > * {
+        min-width: 0;
+      }
+
+      .photo-button {
+        display: block;
+        width: 240px;
+        height: 280px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        padding: 0;
+        background: var(--wash);
+        color: var(--muted);
+        cursor: pointer;
+      }
+
+      .photo-button img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-placeholder {
+        display: grid;
+        height: 100%;
+        place-content: center;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .photo-placeholder strong {
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+      }
+
+      .photo-placeholder span,
+      .contact-label {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .photo-status {
+        max-width: 240px;
+        min-height: 24px;
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .contact-details li {
+        display: grid;
+        grid-template-columns: 100px minmax(0, 1fr);
+        gap: 24px;
+        align-items: center;
+        min-height: 64px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .contact-details a {
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+        overflow-wrap: anywhere;
+      }
+
+      .linkedin-field {
+        min-width: 0;
+      }
+
+      .linkedin-input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 8px 0;
+        background: transparent;
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 20px;
+      }
+
+      .linkedin-input:focus {
+        outline: 0;
+        border-color: var(--accent);
+      }
+
+      .linkedin-link {
+        display: inline-block;
+        margin-top: 8px;
+        color: var(--accent) !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        font-size: 14px !important;
+        font-weight: 700;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        min-height: 110px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      footer a:hover,
+      footer a:focus-visible {
+        color: var(--accent);
+      }
+
+      .document-dialog {
+        width: min(900px, calc(100% - 32px));
+        height: min(760px, calc(100% - 32px));
+        border: 1px solid var(--line);
+        padding: 0;
+        background: var(--paper);
+      }
+
+      .document-dialog::backdrop {
+        background: rgba(17, 24, 39, 0.72);
+      }
+
+      .dialog-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 56px;
+        padding: 0 16px 0 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .dialog-bar strong {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .dialog-close {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--paper);
+        color: var(--ink);
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .dialog-content {
+        height: calc(100% - 56px);
+        overflow: auto;
+        background: #eaecf0;
+      }
+
+      .dialog-content img,
+      .dialog-content iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .dialog-content img {
+        object-fit: contain;
+      }
+
+      .dialog-message {
+        padding: 32px;
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 32px, 1120px);
+        }
+
+        header {
+          min-height: 76px;
+        }
+
+        nav {
+          gap: 12px;
+          font-size: 13px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 44px;
+          min-height: auto;
+          padding: 64px 0;
+        }
+
+        h1 {
+          font-size: clamp(44px, 15vw, 68px);
+        }
+
+        .section-grid,
+        .page-intro {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .page-intro {
+          padding: 52px 0 40px;
+        }
+
+        .work-list li {
+          grid-template-columns: 52px minmax(0, 1fr);
+        }
+
+        .type {
+          display: none;
+        }
+
+        .record {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        .record-detail {
+          display: none;
+        }
+
+        .marks-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .photo-button {
+          width: 200px;
+          height: 232px;
+        }
+
+        .contact-details li {
+          grid-template-columns: 82px minmax(0, 1fr);
+          gap: 12px;
+        }
+
+        .contact-details a,
+        .linkedin-input {
+          font-size: 16px;
+        }
+
+        .document-status {
+          grid-column: 1;
+        }
+
+        footer {
+          gap: 20px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <a class="name" href="#top" aria-label="Back to top">SG.</a>
+        <nav aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#education">Academics</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">Personal website</p>
+            <h1>Subhrajyoti Ghosh</h1>
+          </div>
+          <div>
+            <p class="intro">
+              <strong>B.Tech student at NIT Durgapur.</strong>
+              Learning software development and building useful digital experiences.
+            </p>
+            <a class="link" href="#work">View selected work</a>
+          </div>
+        </div>
+
+        <section id="about">
+          <div class="section-grid">
+            <h2>About</h2>
+            <p class="about-copy">
+              I am a B.Tech student at the National Institute of Technology,
+              Durgapur. I am interested in technology, software development,
+              and turning ideas into simple, thoughtful projects.
+            </p>
+          </div>
+        </section>
+
+        <section id="work">
+          <div class="section-grid">
+            <h2>Selected work</h2>
+            <ul class="work-list">
+              <li>
+                <span class="year">2026</span>
+                <span class="project">Personal website</span>
+                <span class="type">Web</span>
+              </li>
+              <li>
+                <span class="year">2026</span>
+                <span class="project">Coding practice</span>
+                <span class="type">Learning</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <div class="page-intro" id="academics">
+          <div>
+            <p class="eyebrow">Education &amp; achievement</p>
+            <h2>Academic records</h2>
+          </div>
+          <p class="summary">
+            A record of coursework, examinations, and academic milestones.
+          </p>
+        </div>
+
+        <section id="education" aria-labelledby="education-heading">
+          <div class="section-grid">
+            <h2 id="education-heading">Education</h2>
+            <div class="records">
+              <article class="record">
+                <span class="record-year">2025–29</span>
+                <span class="record-title">B.Tech, National Institute of Technology Durgapur</span>
+                <span class="record-detail">In progress</span>
+              </article>
+              <article class="record">
+                <span class="record-year">Passing year: 2024</span>
+                <span class="record-title">Higher secondary, Bethuadahari JCM High School</span>
+                <span class="record-detail">Passed</span>
+              </article>
+              <article class="record">
+                <span class="record-year">Passing year: 2022</span>
+                <span class="record-title">Secondary, Bethuadahari JCM High School</span>
+                <span class="record-detail">Passed</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="results" aria-labelledby="results-heading">
+          <div class="section-grid">
+            <h2 id="results-heading">Results</h2>
+            <div class="marks-grid">
+              <article class="mark-card">
+                <h3>JEE / Entrance</h3>
+                <strong>20930</strong>
+                <span>Rank</span>
+              </article>
+              <article class="mark-card">
+                <h3>Higher secondary</h3>
+                <strong>78.4%</strong>
+                <span>Percentage</span>
+              </article>
+              <article class="mark-card">
+                <h3>Secondary</h3>
+                <strong>82.85%</strong>
+                <span>Percentage</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="documents" aria-labelledby="documents-heading">
+          <div class="section-grid">
+            <h2 id="documents-heading">Documents</h2>
+            <div>
+              <ul class="documents">
+                <li data-document="jee">
+                  <span>Entrance examination scorecard</span>
+                  <span>
+                    <button class="document-action" type="button" data-action="select">Add file</button>
+                    <button class="document-action" type="button" data-action="open" hidden>View file</button>
+                    <span class="document-name" hidden></span>
+                    <input type="file" accept="image/*,.pdf" hidden />
+                  </span>
+                </li>
+                <li data-document="higher-secondary">
+                  <span>Higher secondary certificate</span>
+                  <span>
+                    <button class="document-action" type="button" data-action="select">Add file</button>
+                    <button class="document-action" type="button" data-action="open" hidden>View file</button>
+                    <span class="document-name" hidden></span>
+                    <input type="file" accept="image/*,.pdf" hidden />
+                  </span>
+                </li>
+                <li data-document="secondary">
+                  <span>Secondary certificate</span>
+                  <span>
+                    <button class="document-action" type="button" data-action="select">Add file</button>
+                    <button class="document-action" type="button" data-action="open" hidden>View file</button>
+                    <span class="document-name" hidden></span>
+                    <input type="file" accept="image/*,.pdf" hidden />
+                  </span>
+                </li>
+              </ul>
+              <p class="document-status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div class="section-grid">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+              <div>
+                <button class="photo-button" id="photo-button" type="button" aria-label="Choose profile photo">
+                  <span class="photo-placeholder">
+                    <strong>Add photo</strong>
+                    <span>Choose from your device</span>
+                  </span>
+                </button>
+                <input id="photo-input" type="file" accept="image/*" hidden />
+                <p class="photo-status" id="photo-status" role="status" aria-live="polite"></p>
+              </div>
+              <ul class="contact-details">
+                <li>
+                  <span class="contact-label">Phone</span>
+                  <a href="tel:+919635393658">+91 96353 93658</a>
+                </li>
+                <li>
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:subhrajyotig40@gmail.com">subhrajyotig40@gmail.com</a>
+                </li>
+                <li>
+                  <span class="contact-label">LinkedIn</span>
+                  <div class="linkedin-field">
+                    <input
+                      class="linkedin-input"
+                      id="linkedin-input"
+                      type="url"
+                      placeholder="Paste your LinkedIn profile URL"
+                      aria-label="LinkedIn profile URL"
+                    />
+                    <a class="linkedin-link" id="linkedin-link" hidden target="_blank" rel="noopener noreferrer">Open LinkedIn profile</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>&copy; 2026 Subhrajyoti Ghosh</span>
+        <a href="mailto:subhrajyotig40@gmail.com">Get in touch</a>
+      </footer>
+    </div>
+
+    <dialog class="document-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-bar">
+        <strong id="dialog-title">Academic document</strong>
+        <button class="dialog-close" type="button" aria-label="Close document">&times;</button>
+      </div>
+      <div class="dialog-content"></div>
+    </dialog>
+
+    <script>
+      const photoDatabaseName = "subhrajyoti-website";
+      const photoStoreName = "profile";
+      const documentDatabaseName = "subhrajyoti-academic-records";
+      const documentStoreName = "documents";
+
+      function openDatabase(name, storeName) {
+        return new Promise((resolve, reject) => {
+          const request = indexedDB.open(name, 1);
+          request.onupgradeneeded = () => {
+            request.result.createObjectStore(storeName);
+          };
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      async function saveProfilePhoto(file) {
+        const database = await openDatabase(photoDatabaseName, photoStoreName);
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction(photoStoreName, "readwrite");
+          transaction.objectStore(photoStoreName).put(file, "photo");
+          transaction.oncomplete = () => resolve();
+          transaction.onerror = () => reject(transaction.error);
+        });
+      }
+
+      async function loadProfilePhoto() {
+        const database = await openDatabase(photoDatabaseName, photoStoreName);
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction(photoStoreName, "readonly");
+          const request = transaction.objectStore(photoStoreName).get("photo");
+          request.onsuccess = () => resolve(request.result || null);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      async function saveDocument(key, file) {
+        const database = await openDatabase(documentDatabaseName, documentStoreName);
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction(documentStoreName, "readwrite");
+          transaction.objectStore(documentStoreName).put(
+            { blob: file, name: file.name, type: file.type },
+            key
+          );
+          transaction.oncomplete = () => resolve();
+          transaction.onerror = () => reject(transaction.error);
+        });
+      }
+
+      async function getDocument(key) {
+        const database = await openDatabase(documentDatabaseName, documentStoreName);
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction(documentStoreName, "readonly");
+          const request = transaction.objectStore(documentStoreName).get(key);
+          request.onsuccess = () => resolve(request.result || null);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      const photoButton = document.querySelector("#photo-button");
+      const photoInput = document.querySelector("#photo-input");
+      const photoStatus = document.querySelector("#photo-status");
+
+      function showProfilePhoto(file) {
+        const image = document.createElement("img");
+        image.src = URL.createObjectURL(file);
+        image.alt = "Subhrajyoti Ghosh";
+        photoButton.replaceChildren(image);
+      }
+
+      photoButton.addEventListener("click", () => photoInput.click());
+      photoInput.addEventListener("change", async () => {
+        const file = photoInput.files[0];
+        if (!file) return;
+        if (!file.type.startsWith("image/")) {
+          photoStatus.textContent = "Choose an image file for your profile photo.";
+          photoInput.value = "";
+          return;
+        }
+        try {
+          await saveProfilePhoto(file);
+          showProfilePhoto(file);
+          photoStatus.textContent = "Photo saved in this browser. Click it to choose a replacement.";
+        } catch {
+          photoStatus.textContent = "Could not save your photo in this browser. Check the browser's storage settings and try again.";
+        } finally {
+          photoInput.value = "";
+        }
+      });
+
+      loadProfilePhoto()
+        .then((file) => {
+          if (!file) return;
+          showProfilePhoto(file);
+          photoStatus.textContent = "Photo loaded from this browser. Click it to choose a replacement.";
+        })
+        .catch(() => {
+          photoStatus.textContent = "Photo storage is unavailable in this browser.";
+        });
+
+      const linkedinInput = document.querySelector("#linkedin-input");
+      const linkedinLink = document.querySelector("#linkedin-link");
+
+      function setLinkedInLink(value) {
+        const url = new URL(value);
+        if (url.protocol !== "https:" && url.protocol !== "http:") {
+          throw new TypeError("LinkedIn URL must use HTTP or HTTPS.");
+        }
+        linkedinLink.href = url.href;
+        linkedinLink.hidden = false;
+      }
+
+      try {
+        const savedUrl = localStorage.getItem("linkedin-url") || "";
+        linkedinInput.value = savedUrl;
+        if (savedUrl) setLinkedInLink(savedUrl);
+      } catch {
+        photoStatus.textContent = "Browser storage is unavailable; your LinkedIn URL may not be saved.";
+      }
+
+      linkedinInput.addEventListener("input", () => {
+        linkedinInput.setCustomValidity("");
+      });
+      linkedinInput.addEventListener("change", () => {
+        const value = linkedinInput.value.trim();
+        if (!value) {
+          linkedinLink.hidden = true;
+          try {
+            localStorage.removeItem("linkedin-url");
+          } catch {
+            linkedinInput.setCustomValidity("Browser storage is unavailable; the URL could not be removed.");
+            linkedinInput.reportValidity();
+          }
+          return;
+        }
+        try {
+          const url = new URL(value);
+          if (url.protocol !== "https:" && url.protocol !== "http:") {
+            throw new TypeError("LinkedIn URL must use HTTP or HTTPS.");
+          }
+          localStorage.setItem("linkedin-url", url.href);
+          linkedinInput.value = url.href;
+          setLinkedInLink(url.href);
+        } catch {
+          linkedinInput.setCustomValidity("Enter a complete LinkedIn URL, such as https://www.linkedin.com/in/username");
+          linkedinInput.reportValidity();
+        }
+      });
+
+      const documentStatus = document.querySelector(".document-status");
+      const dialog = document.querySelector(".document-dialog");
+      const dialogTitle = document.querySelector("#dialog-title");
+      const dialogContent = document.querySelector(".dialog-content");
+      let displayedUrl = null;
+
+      function displayDocument(record, title) {
+        if (displayedUrl) URL.revokeObjectURL(displayedUrl);
+        displayedUrl = URL.createObjectURL(record.blob);
+        dialogTitle.textContent = title;
+        dialogContent.replaceChildren();
+
+        if (record.type.startsWith("image/")) {
+          const image = document.createElement("img");
+          image.src = displayedUrl;
+          image.alt = title;
+          dialogContent.append(image);
+        } else if (record.type === "application/pdf") {
+          const frame = document.createElement("iframe");
+          frame.src = displayedUrl;
+          frame.title = title;
+          dialogContent.append(frame);
+        } else {
+          const message = document.createElement("p");
+          message.className = "dialog-message";
+          message.textContent = "This file type can be downloaded.";
+          dialogContent.append(message);
+        }
+        dialog.showModal();
+      }
+
+      document.querySelectorAll("[data-document]").forEach((row) => {
+        const key = row.dataset.document;
+        const title = row.querySelector(":scope > span").textContent.trim();
+        const input = row.querySelector('input[type="file"]');
+        const selectButton = row.querySelector('[data-action="select"]');
+        const openButton = row.querySelector('[data-action="open"]');
+        const nameLabel = row.querySelector(".document-name");
+
+        selectButton.addEventListener("click", () => input.click());
+        input.addEventListener("change", async () => {
+          const file = input.files[0];
+          if (!file) return;
+          try {
+            await saveDocument(key, file);
+            openButton.hidden = false;
+            nameLabel.hidden = false;
+            nameLabel.textContent = file.name;
+            selectButton.textContent = "Replace file";
+            documentStatus.textContent = `${title} saved in this browser.`;
+          } catch {
+            documentStatus.textContent = `Could not save ${title}.`;
+          } finally {
+            input.value = "";
+          }
+        });
+
+        openButton.addEventListener("click", async () => {
+          try {
+            const record = await getDocument(key);
+            if (record) displayDocument(record, title);
+          } catch {
+            documentStatus.textContent = `Could not open ${title}.`;
+          }
+        });
+
+        getDocument(key)
+          .then((record) => {
+            if (!record) return;
+            openButton.hidden = false;
+            nameLabel.hidden = false;
+            nameLabel.textContent = record.name;
+            selectButton.textContent = "Replace file";
+          })
+          .catch(() => {
+            documentStatus.textContent = "Saved academic files could not be loaded from this browser.";
+          });
+      });
+
+      document.querySelector(".dialog-close").addEventListener("click", () => {
+        dialog.close();
+      });
+
+      dialog.addEventListener("close", () => {
+        if (!displayedUrl) return;
+        URL.revokeObjectURL(displayedUrl);
+        displayedUrl = null;
+      });
+    </script>
+  </body>
+</html>

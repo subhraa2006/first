@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academic records and education of Subhrajyoti Ghosh"
+    />
+    <title>Academics | Subhrajyoti Ghosh</title>
+    <style>
+      :root {
+        --ink: #111827;
+        --muted: #5f6672;
+        --paper: #ffffff;
+        --line: #dde1e7;
+        --accent: #a91d2b;
+        --blue: #173a63;
+        --wash: #f6f7f8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:focus-visible {
+        outline: 3px solid rgba(169, 29, 43, 0.28);
+        outline-offset: 4px;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 92px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .name {
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 19px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      nav {
+        display: flex;
+        gap: 28px;
+        font-size: 14px;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      nav a:hover,
+      nav a:focus-visible,
+      nav a[aria-current="page"] {
+        color: var(--accent);
+      }
+
+      .page-heading {
+        display: grid;
+        grid-template-columns: 1.6fr 0.4fr;
+        gap: 48px;
+        align-items: end;
+        padding: 72px 0 56px;
+      }
+
+      .eyebrow,
+      h2 {
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(52px, 8vw, 92px);
+        font-weight: 400;
+        line-height: 0.95;
+        letter-spacing: -0.045em;
+      }
+
+      .summary {
+        margin: 0;
+        padding-left: 20px;
+        border-left: 3px solid var(--accent);
+        color: var(--muted);
+      }
+
+      section {
+        border-top: 1px solid var(--line);
+        padding: 48px 0 56px;
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 48px;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--blue);
+      }
+
+      .record {
+        display: grid;
+        grid-template-columns: 140px 1fr auto;
+        gap: 24px;
+        align-items: baseline;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .record:first-child {
+        border-top: 1px solid var(--line);
+      }
+
+      .record-year,
+      .record-detail {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .record-title {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+      }
+
+      .marks-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .mark-card {
+        min-height: 150px;
+        padding: 22px;
+        background: var(--wash);
+        border-top: 3px solid var(--accent);
+      }
+
+      .mark-card h3 {
+        margin: 0 0 26px;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .mark-card strong {
+        display: block;
+        color: var(--blue);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 38px;
+        line-height: 1;
+      }
+
+      .mark-card span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .documents {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .documents li {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .documents a {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .document-action {
+        border: 0;
+        border-bottom: 1px solid var(--accent);
+        padding: 0 0 2px;
+        color: var(--accent);
+        background: transparent;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .document-action:hover,
+      .document-action:focus-visible {
+        color: var(--blue);
+        border-color: var(--blue);
+      }
+
+      .document-name {
+        display: block;
+        max-width: 480px;
+        overflow: hidden;
+        color: var(--muted);
+        font-size: 12px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .document-status {
+        grid-column: 2;
+        min-height: 24px;
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .document-dialog {
+        width: min(900px, calc(100% - 32px));
+        height: min(760px, calc(100% - 32px));
+        border: 1px solid var(--line);
+        padding: 0;
+        background: var(--paper);
+      }
+
+      .document-dialog::backdrop {
+        background: rgba(17, 24, 39, 0.72);
+      }
+
+      .dialog-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 56px;
+        padding: 0 16px 0 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .dialog-bar strong {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .dialog-close {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: var(--paper);
+        color: var(--ink);
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .dialog-content {
+        height: calc(100% - 56px);
+        overflow: auto;
+        background: #eaecf0;
+      }
+
+      .dialog-content img,
+      .dialog-content iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .dialog-content img {
+        object-fit: contain;
+        background: #eaecf0;
+      }
+
+      .dialog-message {
+        padding: 32px;
+        text-align: center;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        min-height: 110px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 32px, 1120px);
+        }
+
+        header {
+          min-height: 76px;
+        }
+
+        nav {
+          gap: 14px;
+        }
+
+        nav a:first-child {
+          display: none;
+        }
+
+        .page-heading,
+        .section-grid {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .page-heading {
+          padding: 56px 0 44px;
+        }
+
+        h1 {
+          font-size: clamp(48px, 15vw, 68px);
+        }
+
+        .summary {
+          max-width: 420px;
+        }
+
+        .record {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        .record-detail {
+          display: none;
+        }
+
+        .marks-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .document-status {
+          grid-column: 1;
+        }
+
+        footer {
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <a class="name" href="personal.html" aria-label="Go to personal page">SG.</a>
+        <nav aria-label="Primary navigation">
+          <a href="personal.html#about">About</a>
+          <a href="personal.html#work">Work</a>
+          <a href="personal.html#education" aria-current="page">Academics</a>
+          <a href="mailto:hello@example.com">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Education &amp; achievement</p>
+            <h1>Academic<br />records</h1>
+          </div>
+          <p class="summary">
+            A record of coursework, examinations, and academic milestones.
+          </p>
+        </div>
+
+        <section aria-labelledby="education-heading">
+          <div class="section-grid">
+            <h2 id="education-heading">Education</h2>
+            <div>
+              <article class="record">
+                <span class="record-year">2025–29</span>
+                <span class="record-title">B.Tech, National Institute of Technology Durgapur</span>
+                <span class="record-detail">In progress</span>
+              </article>
+              <article class="record">
+                <span class="record-year">Passing year: 2024</span>
+                <span class="record-title">Higher secondary, Bethuadahari JCM High School</span>
+                <span class="record-detail">Passed</span>
+              </article>
+              <article class="record">
+                <span class="record-year">Passing year: 2022</span>
+                <span class="record-title">Secondary, Bethuadahari JCM High School</span>
+                <span class="record-detail">Passed</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="results-heading">
+          <div class="section-grid">
+            <h2 id="results-heading">Results</h2>
+            <div class="marks-grid">
+              <article class="mark-card">
+                <h3>JEE / Entrance</h3>
+                <strong>20930</strong>
+                <span>Rank</span>
+              </article>
+              <article class="mark-card">
+                <h3>Higher secondary</h3>
+                <strong>78.4%</strong>
+                <span>Percentage</span>
+              </article>
+              <article class="mark-card">
+                <h3>Secondary</h3>
+                <strong>82.85%</strong>
+                <span>Percentage</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="documents-heading">
+          <div class="section-grid">
+            <h2 id="documents-heading">Documents</h2>
+            <ul class="documents">
+              <li data-document="jee">
+                <span>Entrance examination scorecard</span>
+                <span>
+                  <button class="document-action" type="button" data-action="select">Add file</button>
+                  <button class="document-action" type="button" data-action="open" hidden>View file</button>
+                  <span class="document-name" hidden></span>
+                  <input type="file" accept="image/*,.pdf" hidden />
+                </span>
+              </li>
+              <li data-document="higher-secondary">
+                <span>Higher secondary certificate</span>
+                <span>
+                  <button class="document-action" type="button" data-action="select">Add file</button>
+                  <button class="document-action" type="button" data-action="open" hidden>View file</button>
+                  <span class="document-name" hidden></span>
+                  <input type="file" accept="image/*,.pdf" hidden />
+                </span>
+              </li>
+              <li data-document="secondary">
+                <span>Secondary certificate</span>
+                <span>
+                  <button class="document-action" type="button" data-action="select">Add file</button>
+                  <button class="document-action" type="button" data-action="open" hidden>View file</button>
+                  <span class="document-name" hidden></span>
+                  <input type="file" accept="image/*,.pdf" hidden />
+                </span>
+              </li>
+            </ul>
+            <p class="document-status" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>&copy; 2026 Subhrajyoti Ghosh</span>
+        <a href="mailto:hello@example.com">Get in touch</a>
+      </footer>
+    </div>
+
+    <dialog class="document-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-bar">
+        <strong id="dialog-title">Academic document</strong>
+        <button class="dialog-close" type="button" aria-label="Close document">&times;</button>
+      </div>
+      <div class="dialog-content"></div>
+    </dialog>
+
+    <script>
+      const databaseName = "subhrajyoti-academic-records";
+      const storeName = "documents";
+
+      function openDatabase() {
+        return new Promise((resolve, reject) => {
+          const request = indexedDB.open(databaseName, 1);
+          request.onupgradeneeded = () => {
+            request.result.createObjectStore(storeName);
+          };
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      async function saveDocument(key, file) {
+        const database = await openDatabase();
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction(storeName, "readwrite");
+          transaction.objectStore(storeName).put(
+            { blob: file, name: file.name, type: file.type },
+            key
+          );
+          transaction.oncomplete = () => resolve();
+          transaction.onerror = () => reject(transaction.error);
+        });
+      }
+
+      async function getDocument(key) {
+        const database = await openDatabase();
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction(storeName, "readonly");
+          const request = transaction.objectStore(storeName).get(key);
+          request.onsuccess = () => resolve(request.result || null);
+          request.onerror = () => reject(request.error);
+        });
+      }
+
+      const status = document.querySelector(".document-status");
+      const dialog = document.querySelector(".document-dialog");
+      const dialogTitle = document.querySelector("#dialog-title");
+      const dialogContent = document.querySelector(".dialog-content");
+      let displayedUrl = null;
+
+      function displayDocument(record, title) {
+        if (displayedUrl) URL.revokeObjectURL(displayedUrl);
+        displayedUrl = URL.createObjectURL(record.blob);
+        dialogTitle.textContent = title;
+        dialogContent.replaceChildren();
+
+        if (record.type.startsWith("image/")) {
+          const image = document.createElement("img");
+          image.src = displayedUrl;
+          image.alt = title;
+          dialogContent.append(image);
+        } else if (record.type === "application/pdf") {
+          const frame = document.createElement("iframe");
+          frame.src = displayedUrl;
+          frame.title = title;
+          dialogContent.append(frame);
+        } else {
+          const message = document.createElement("p");
+          message.className = "dialog-message";
+          message.textContent = "This file type can be downloaded.";
+          dialogContent.append(message);
+        }
+
+        dialog.showModal();
+      }
+
+      document.querySelectorAll("[data-document]").forEach((row) => {
+        const key = row.dataset.document;
+        const title = row.querySelector(":scope > span").textContent.trim();
+        const input = row.querySelector('input[type="file"]');
+        const selectButton = row.querySelector('[data-action="select"]');
+        const openButton = row.querySelector('[data-action="open"]');
+        const nameLabel = row.querySelector(".document-name");
+
+        selectButton.addEventListener("click", () => input.click());
+
+        input.addEventListener("change", async () => {
+          const file = input.files[0];
+          if (!file) return;
+          try {
+            await saveDocument(key, file);
+            openButton.hidden = false;
+            nameLabel.hidden = false;
+            nameLabel.textContent = file.name;
+            selectButton.textContent = "Replace file";
+            status.textContent = `${title} saved in this browser.`;
+          } catch (error) {
+            status.textContent = `Could not save ${title}.`;
+          }
+        });
+
+        openButton.addEventListener("click", async () => {
+          try {
+            const record = await getDocument(key);
+            if (record) displayDocument(record, title);
+          } catch (error) {
+            status.textContent = `Could not open ${title}.`;
+          }
+        });
+
+        getDocument(key).then((record) => {
+          if (!record) return;
+          openButton.hidden = false;
+          nameLabel.hidden = false;
+          nameLabel.textContent = record.name;
+          selectButton.textContent = "Replace file";
+        }).catch(() => {});
+      });
+
+      document.querySelector(".dialog-close").addEventListener("click", () => {
+        dialog.close();
+      });
+
+      dialog.addEventListener("close", () => {
+        if (displayedUrl) {
+          URL.revokeObjectURL(displayedUrl);
+          displayedUrl = null;
+        }
+      });
+    </script>
+  </body>
+</html>
